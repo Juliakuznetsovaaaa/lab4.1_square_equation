@@ -44,17 +44,8 @@ float root_1(float a, float b, float c, float discr) {
 float root_2(float a, float b, float c, float discr) {
     return ((-b - sqrt(discr)) / (2 * a));
 }
-
-int main()
-{
-    setlocale(LC_ALL, "Rus");
-    float nums[] = { 0, 0, 0 };
-    reading(nums);
+void find_roots(float discr, float a, float b, float c) {
     ofstream fout("C:\\Users\\Julia\\source\\repos\\4sem_lab1\\output.txt");
-    float a = nums[0];
-    float b = nums[1];
-    float c = nums[2];
-    float discr = discriminant(a, b, c);
     if ((discr > 0) & (a != 0)) {
         fout << "Корень 1: ";
         float k1 = root_1(a, b, c, discr);
@@ -70,4 +61,17 @@ int main()
     else {
         fout << "корней нет";
     }
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Rus");
+    float nums[] = { 0, 0, 0 };
+    reading(nums);
+    ofstream fout("C:\\Users\\Julia\\source\\repos\\4sem_lab1\\output.txt");
+    float a = nums[0];
+    float b = nums[1];
+    float c = nums[2];
+    float discr = discriminant(a, b, c);
+    find_roots(discr, a, b, c);
 }
