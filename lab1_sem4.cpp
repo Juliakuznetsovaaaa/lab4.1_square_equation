@@ -14,8 +14,8 @@ bool is_number(const std::string& s)
     return !s.empty() && it == s.end();
 }
 
-void reading(float* nums) {
-    ifstream fin("C:\\Users\\Julia\\source\\repos\\4sem_lab1\\input.txt");
+void reading(float(&nums)[3]) {
+    ifstream fin("input.txt");
     string num;
     for (int i = 0; i < 3; i++) {
         fin >> num;
@@ -45,7 +45,7 @@ float root_2(float a, float b, float c, float discr) {
     return ((-b - sqrt(discr)) / (2 * a));
 }
 void find_roots(float discr, float a, float b, float c) {
-    ofstream fout("C:\\Users\\Julia\\source\\repos\\4sem_lab1\\output.txt");
+    ofstream fout("output.txt");
     if ((discr > 0) & (a != 0)) {
         fout << "Корень 1: ";
         float k1 = root_1(a, b, c, discr);
@@ -68,7 +68,6 @@ int main()
     setlocale(LC_ALL, "Rus");
     float nums[] = { 0, 0, 0 };
     reading(nums);
-    ofstream fout("C:\\Users\\Julia\\source\\repos\\4sem_lab1\\output.txt");
     float a = nums[0];
     float b = nums[1];
     float c = nums[2];
